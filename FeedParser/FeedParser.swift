@@ -104,8 +104,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 // Element is not needed for parsing
                 break
             default:
-                println("ATOM Element's name is \(elementName)")
-                println("ATOM Element's attributes are \(attributeDict)")
+                log("ATOM Element's name is \(elementName)")
+                log("ATOM Element's attributes are \(attributeDict)")
             }
         case FeedType.RSS:
             switch elementName {
@@ -122,8 +122,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 self.tmpImage = NewsImage()
                 self.tmpImage?.url = attributeDict["url"] as! String
             default:
-                println("Element's name is \(elementName)")
-                println("Element's attributes are \(attributeDict)")
+                log("Element's name is \(elementName)")
+                log("Element's attributes are \(attributeDict)")
             }
         default:
             switch elementName {
@@ -135,8 +135,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 // Element is not needed for parsing
                 break
             default:
-                println("RSS Element's name is \(elementName)")
-                println("RSS Element's attributes are \(attributeDict)")
+                log("RSS Element's name is \(elementName)")
+                log("RSS Element's attributes are \(attributeDict)")
             }
         }
     }
@@ -219,7 +219,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                     // Content not used, value is stored in attribute
                     break
                 default:
-                    println("UNKNOWN END ATOM Element \(elementName)")
+                    log("UNKNOWN END ATOM Element \(elementName)")
             }
         case FeedType.RSS:
             switch elementName {
@@ -315,10 +315,10 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 // Content not used, value is stored in attribute
                 break
             default:
-                println("UNKNOWN END RSS Element \(elementName)")
+                log("UNKNOWN END RSS Element \(elementName)")
             }
         default:
-            println("UNKNOWN feedType \(self.newsFeed.feedType)")
+            log("UNKNOWN feedType \(self.newsFeed.feedType)")
         }
     }
     
@@ -327,7 +327,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        println("Error: \(parseError.description)")
+        log("Error: \(parseError.description)")
         self.delegate?.anErrorOccured(self, error: parseError)
     }
     
@@ -365,5 +365,8 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         return NSDate()
     }
 
+    private func log(str:String){
+//        println(str)
+    }
 
 }
