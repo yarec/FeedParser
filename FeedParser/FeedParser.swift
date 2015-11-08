@@ -49,7 +49,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         self.newsFeed.url = urlString
         
         var feedUrl = NSURL(string: urlString)
-        var parser = NSXMLParser(contentsOfURL: feedUrl)
+        var parser = NSXMLParser(contentsOfURL: feedUrl!)
         parser?.delegate = self
         parser?.parse()
     }
@@ -60,14 +60,14 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
         
         self.newsFeed.url = fileString
         
-        var feedUrl = NSURL(fileURLWithPath: fileString)
-        var parser = NSXMLParser(contentsOfURL: feedUrl)
+        let feedUrl = NSURL(fileURLWithPath: fileString)
+        let parser = NSXMLParser(contentsOfURL: feedUrl)
         parser?.delegate = self
         parser?.parse()
     }
     
     // MARK: - NSXMLParserDelegate 
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         self.currentContent = ""
         
@@ -80,10 +80,10 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             case "link":
                 switch self.parseMode {
                 case ParseMode.FEED:
-                    self.newsFeed.link = attributeDict["href"] as! String
+                    self.newsFeed.link = attributeDict["href"]! //as! String
                     break
                 case ParseMode.ENTRY:
-                    self.tmpEntry.link = attributeDict["href"] as! String
+                    self.tmpEntry.link = attributeDict["href"]! //as! String
                     break
                 case ParseMode.IMAGE:
                     break
@@ -98,7 +98,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                     self.lastParseMode = self.parseMode
                     self.parseMode = ParseMode.IMAGE
                     self.tmpImage = NewsImage()
-                    self.tmpImage?.url = attributeDict["url"] as! String
+                    self.tmpImage?.url = attributeDict["url"]! //as! String
                 }
             case "title", "updated", "id", "summary", "content", "author", "name":
                 // Element is not needed for parsing
@@ -120,7 +120,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
                 self.lastParseMode = self.parseMode
                 self.parseMode = ParseMode.IMAGE
                 self.tmpImage = NewsImage()
-                self.tmpImage?.url = attributeDict["url"] as! String
+                self.tmpImage?.url = attributeDict["url"]! //as! String
             default:
                 log("Element's name is \(elementName)")
                 log("Element's attributes are \(attributeDict)")
@@ -354,7 +354,7 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
     }
     
     private func parseRFC822DateFromString(string:String) -> NSDate {
-        var dateFormat = NSDateFormatter()
+        let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
         let date:NSDate? = dateFormat.dateFromString(string)
 

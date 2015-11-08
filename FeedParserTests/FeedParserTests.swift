@@ -64,4 +64,13 @@ class FeedParserTests: XCTestCase {
         feedParser.parseFeedFromUrl(urlString)
     }
 
+    func testRssFeedParsingFromFile() {
+        let urlString = "http://www.ifanr.com/feed"
+        
+        var feedParserDelegate = TestRSSFeedParserDelegate()
+        var feedParser = FeedParser()
+        
+        feedParser.delegate = feedParserDelegate
+        feedParser.parseFeedFromUrl(urlString)
+    }
 }

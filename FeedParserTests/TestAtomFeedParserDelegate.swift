@@ -41,7 +41,7 @@ class TestAtomFeedParserDelegate: NSObject, FeedParserDelegate  {
 
     
     func anErrorOccured(parser:FeedParser, error:NSError) {
-        println("Error: \(error.description)")
+        print("Error: \(error.description)")
     }
 
 }

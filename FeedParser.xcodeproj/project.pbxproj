@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7331DF0A1B2052690034C40F /* TestRSSFeedParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7331DF091B2052690034C40F /* TestRSSFeedParserDelegate.swift */; };
 		E12935171AF8FABE00E1765F /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = E12935161AF8FABE00E1765F /* rss2sample.xml.rss */; };
 		E129351A1AF8FBCF00E1765F /* heise-atom.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = E12935181AF8FBCF00E1765F /* heise-atom.xml.rss */; };
 		E129351B1AF8FBCF00E1765F /* spon.rss in Resources */ = {isa = PBXBuildFile; fileRef = E12935191AF8FBCF00E1765F /* spon.rss */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7331DF091B2052690034C40F /* TestRSSFeedParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRSSFeedParserDelegate.swift; sourceTree = "<group>"; };
 		E12935161AF8FABE00E1765F /* rss2sample.xml.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rss2sample.xml.rss; sourceTree = "<group>"; };
 		E12935181AF8FBCF00E1765F /* heise-atom.xml.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "heise-atom.xml.rss"; sourceTree = "<group>"; };
 		E12935191AF8FBCF00E1765F /* spon.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spon.rss; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				E12935161AF8FABE00E1765F /* rss2sample.xml.rss */,
 				E1EA57CB1A1B7A970024E583 /* TestAtomFeedParserDelegate.swift */,
 				E1A8CC431A1CA16200AA37FA /* TestSimpleRSSFeedParserDelegate.swift */,
+				7331DF091B2052690034C40F /* TestRSSFeedParserDelegate.swift */,
 				E1EA57B51A1B57D00024E583 /* Supporting Files */,
 			);
 			path = FeedParserTests;
@@ -284,6 +287,8 @@
 		E1EA579C1A1B57D00024E583 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "simutron IT-Service";
 				TargetAttributes = {
@@ -403,6 +408,7 @@
 			files = (
 				E1EA57CC1A1B7A970024E583 /* TestAtomFeedParserDelegate.swift in Sources */,
 				E1EA57B81A1B57D00024E583 /* FeedParserTests.swift in Sources */,
+				7331DF0A1B2052690034C40F /* TestRSSFeedParserDelegate.swift in Sources */,
 				E1A8CC441A1CA16200AA37FA /* TestSimpleRSSFeedParserDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

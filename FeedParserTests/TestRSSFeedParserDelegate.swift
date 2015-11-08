@@ -22,7 +22,7 @@ import Foundation
 import FeedParser
 import XCTest
 
-class TestSimpleRSSFeedParserDelegate: NSObject, FeedParserDelegate  {
+class TestRSSFeedParserDelegate: NSObject, FeedParserDelegate  {
     
     var newsFeed:NewsFeed = NewsFeed()
     
@@ -33,11 +33,9 @@ class TestSimpleRSSFeedParserDelegate: NSObject, FeedParserDelegate  {
     func didFinishFeedParsing(parser:FeedParser, newsFeed:NewsFeed?) {
         self.newsFeed = newsFeed!
         
-        XCTAssertNotNil(self.newsFeed, "Newsfeed parsed.")
-        XCTAssertEqual(self.newsFeed.feedType, FeedType.RSS, "RSS found.")
-        XCTAssertEqual(self.newsFeed.link, "http://www.feedforall.com", "Link found")
-        // Note: in the example file, there are no guid defined, link as key is double used
-        XCTAssertEqual(self.newsFeed.entries.count, 2, "2 Entries found")
+        print(newsFeed?.title)
+        print(newsFeed?.entries)
+        
     }
     
     
